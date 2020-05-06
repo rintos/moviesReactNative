@@ -1,40 +1,25 @@
 
-import React, { Fragment,useState,useEffect } from 'react';
-
-import { FlatList } from 'react-native';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import React, { Fragment } from 'react';
 
 import Header from './src/Components/Header/Header';
 
-import listFilmes from './src/Components/Api/feed';
-import Films from './src/Components/Home/Films'
+import Home from './src/Components/Home/Home';
 
 const App = () =>  {
-
-
-  const [films, setFilms] = useState([])
-  useEffect(() => {
-      listFilmes(setFilms);
-  },[])
-
+  
   return(
     <Fragment>
         <Header />
-        <FlatList
-          data={films}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({item}) => 
-              <Fragment>
-                <Films 
-                  title={item.original_title}
-                  poster={item.poster_path}
-                />
-              </Fragment>}
-         >
-        </FlatList>
+        <Home />
     </Fragment>
 
-          
+
   );
+
+
 }
 
 export default App;
