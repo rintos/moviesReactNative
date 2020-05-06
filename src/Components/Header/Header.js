@@ -8,15 +8,18 @@ import styleHeader from './styleHeader'
 
 const Header = () => {
     return(
-        <View 
-            style={styleHeader.header}
-        >
-            <Text style={styleHeader.text}>Movies</Text>
-            <TextInput 
-                style={styleHeader.search}
-                placeholder={"Search"}
-            />
-        </View>
+        <Fragment>
+            <View 
+                style={styleHeader.header}
+            >
+                <Text style={styleHeader.text}>Movies</Text>
+                <TextInput 
+                    style={styleHeader.search}
+                    placeholder={"Search"}
+                />
+            </View>
+
+        </Fragment>
     );
 }
 

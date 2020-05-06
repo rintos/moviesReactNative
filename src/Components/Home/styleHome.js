@@ -10,7 +10,8 @@ import {
          marginTop: 20
      },
      text: {
-         marginLeft: 20
+         marginLeft: 20,
+         fontSize: 19
      }
  })
 
