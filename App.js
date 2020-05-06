@@ -7,22 +7,38 @@ import React, { Fragment } from 'react';
 import Header from './src/Components/Header/Header';
 
 import Home from './src/Components/Home/Home';
+import FilmDetail from './src/Components/Details/FilmDetail';
+
+const Stack = createStackNavigator();
 
 const App = () =>  {
-  
+
   return(
-    <Fragment>
-        <Header />
-        <Home />
-    </Fragment>
+    // <Fragment>
+    //     <Header />
+    //     <Home />
+    // </Fragment>
 
-
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen 
+          name="Movies" 
+          component={Home} 
+        />
+        <Stack.Screen 
+          name="Details" 
+          component={FilmDetail}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 
 
 }
 
 export default App;
+
+//   {props => <HomeScreen {...props} extraData={someData} />}
 
 /*
       <FlatList

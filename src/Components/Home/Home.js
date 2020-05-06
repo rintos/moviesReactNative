@@ -5,8 +5,10 @@ import {
     FlatList
 } from 'react-native';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const Home = () => {
+const Home = ({navigation}) => {
 
     const [films, setFilms] = useState([])
     useEffect(() => {
@@ -23,6 +25,10 @@ const Home = () => {
                     <Films 
                       title={item.original_title}
                       poster={item.poster_path}
+                      year={item.release_date}
+                      genre={item.genre_ids}
+                      description={item.overview}
+                      navigation={navigation}
                     />
                   </Fragment>}
              >

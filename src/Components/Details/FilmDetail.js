@@ -5,18 +5,31 @@ import {
     Image
 } from 'react-native';
 
-const FilmDetail = ({titleDetail, posterDetail}) => {
+import styleHome from '../Home/styleHome';
+import styleDetail from './styleDetail';
+
+const FilmDetail = ({route, navigation}) => {
+
+
+  const { titleDetail } = route.params;
+  const { posterDetail } = route.params;
+  const { yearDetail } = route.params;
+  const { genreDetail } = route.params;
+  const { overviewDetail } = route.params;
 
     return(
         <>
             <View>
                 <Image 
                     source={{uri: posterDetail}}
+                    style={styleDetail.image}
                 />
-                <Text>{titleDetail}</Text>
-                <Text>Yes</Text>
-                <Text>Genre</Text>
-                <Text>Description</Text>
+                <Text
+                    style={styleHome.text}
+                >{JSON.stringify(titleDetail)}</Text>
+                <Text style={styleHome.text}>{yearDetail}</Text>
+                <Text style={styleHome.text}>{genreDetail}</Text>
+                <Text >{overviewDetail}</Text>
             </View>
             
         </>

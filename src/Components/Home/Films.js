@@ -9,30 +9,22 @@ import styleHome from './styleHome'
 import FilmDetail from '../Details/FilmDetail';
 
 
-const Films = ({title, poster}) => {
+const Films = ({navigation,title, poster, year, genre, description}) => {
 
     let urlImage = "https://image.tmdb.org/t/p/w500";
     let posterUrl = urlImage + poster;
-    console.log(posterUrl);
-
-    const showDetail = () => {
-
-        console.warn(title)
-
-        return(
-            <>
-                <FilmDetail 
-                    titleDetail={title}
-                    posterDetail={posterUrl }
-                />
-            </>
-        )
-    }
     
     return (
 
         <View>
-            <TouchableOpacity onPress={showDetail}>
+            <TouchableOpacity 
+                onPress={() => navigation.navigate('Details',{
+                                titleDetail: title, 
+                                posterDetail: posterUrl,
+                                yearDetail: year,
+                                genreDetail: genre,
+                                overviewDetail: description})
+                        }>
                 <Image
                     source={{ uri: posterUrl }}
                     style={styleHome.poster}
@@ -48,3 +40,6 @@ const Films = ({title, poster}) => {
 }
 
 export default Films
+
+
+//onPress={() => navigation.navigate('Details')
