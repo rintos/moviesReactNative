@@ -6,12 +6,8 @@ import {
      poster: {
          width: 150,
          height: 250,
-         marginLeft: 20,
-         marginTop: 20
-     },
-     text: {
-         marginLeft: 20,
-         fontSize: 19
+         alignItems: "center",
+         justifyContent: "center",
      }
  })
 

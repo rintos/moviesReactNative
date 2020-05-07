@@ -8,6 +8,8 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+let numOfColumns = 3;
+
 const Home = ({navigation}) => {
 
     const [films, setFilms] = useState([])
@@ -20,6 +22,7 @@ const Home = ({navigation}) => {
             <FlatList
               data={films}
               keyExtractor={(item) => item.id.toString()}
+              numColumns={numOfColumns}
               renderItem={({item}) => 
                   <Fragment>
                     <Films 
@@ -38,3 +41,5 @@ const Home = ({navigation}) => {
 }
 
 export default Home
+
+
