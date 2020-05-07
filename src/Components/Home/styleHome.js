@@ -4,12 +4,12 @@ import {
  
  const styleHome = StyleSheet.create({
      poster: {
-         width: 150,
+         width: 250,
          height: 250,
          alignItems: "center",
          justifyContent: "center",
+         
      }
-
  })
 
  export default styleHome

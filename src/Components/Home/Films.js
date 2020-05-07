@@ -32,18 +32,21 @@ const Films = ({navigation,title, poster, year, genre, description}) => {
                         }>
                 <Image
                     source={{ uri: posterUrl }}
-                    style={styleHome.poster}
+                    style={styles.poster}
                 />
             </TouchableOpacity>
-            <View style={styles.onSameLine}>
-                <Text style={itemText}>{title}</Text>
-                <TouchableOpacity>
-                    <Image 
-                        source={require("../../../res/img/s2.png")}
-                        style={styles.favorite}
-                    />
-                </TouchableOpacity>
+            <View style={styles.viewHeight}>
+                <View style={styles.onSameLine}>
+                    <Text style={itemText}>{title}</Text>
+                    <TouchableOpacity>
+                        <Image 
+                            source={require("../../../res/img/s2.png")}
+                            style={styles.favorite}
+                        />
+                    </TouchableOpacity>
+                </View>
             </View>
+
 
         </View>
     )
@@ -59,10 +62,12 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       paddingTop: 10,
-      backgroundColor: "#101010"
+      marginBottom: 10,
+      marginRight: 20,
+      marginLeft: 20,
+      backgroundColor: "#DCDCDC",
     },
     itemStyle: {
-      backgroundColor: "#101010",
       alignItems: "center",
       justifyContent: "center",
       height: 250,
@@ -71,20 +76,38 @@ const styles = StyleSheet.create({
       height: WIDTH / numOfColumns
     },
     itemText: {
-      fontSize: 15,
-      color: "#FFFFFF",
+      fontSize: 12,
+      color: "#FF8C00",
       alignItems: "center",
       justifyContent: "center",
-      flex: 1
+      flex: 1,
+      textAlign: 'center', // <-- the magic
+
     },
     onSameLine: {
+        backgroundColor: "#202020",
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+        marginTop: 15,
+        
     },
     favorite: {
         alignItems: "center",
         width: 20,
         height: 20,
-        marginRight: 60,
+        marginRight: 15,
+    },
+    poster: {
+        width: 167,
+        height: 250,
+        alignItems: "center",
+        justifyContent: "center",
+        
+    }, viewHeight: {
+        height: 50,
+        backgroundColor: "#202020",
+        alignContent: "center",
+        alignItems: "center",
+
     }
   })
