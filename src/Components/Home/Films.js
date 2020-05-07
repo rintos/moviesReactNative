@@ -61,7 +61,6 @@ export default Films
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      paddingTop: 10,
       marginBottom: 10,
       marginRight: 20,
       marginLeft: 20,
