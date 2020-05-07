@@ -9,6 +9,7 @@ import {
          alignItems: "center",
          justifyContent: "center",
      }
+
  })
 
  export default styleHome

@@ -10,13 +10,14 @@ import {
 import styleHome from './styleHome'
 import FilmDetail from '../Details/FilmDetail';
 
+let numOfColumns = 2;
 const WIDTH = Dimensions.get("window").width
 const Films = ({navigation,title, poster, year, genre, description}) => {
 
     let urlImage = "https://image.tmdb.org/t/p/w500";
     let posterUrl = urlImage + poster;
     
-    let {container, itemText} = styles
+    let {container, itemText} = styles;
 
     return (
 
@@ -34,7 +35,15 @@ const Films = ({navigation,title, poster, year, genre, description}) => {
                     style={styleHome.poster}
                 />
             </TouchableOpacity>
-            <Text style={itemText}>{title}</Text>
+            <View style={styles.onSameLine}>
+                <Text style={itemText}>{title}</Text>
+                <TouchableOpacity>
+                    <Image 
+                        source={require("../../../res/img/s2.png")}
+                        style={styles.favorite}
+                    />
+                </TouchableOpacity>
+            </View>
 
         </View>
     )
@@ -45,7 +54,6 @@ const Films = ({navigation,title, poster, year, genre, description}) => {
 
 export default Films
 
-let numOfColumns = 3;
 
 const styles = StyleSheet.create({
     container: {
@@ -67,5 +75,16 @@ const styles = StyleSheet.create({
       color: "#FFFFFF",
       alignItems: "center",
       justifyContent: "center",
+      flex: 1
+    },
+    onSameLine: {
+        flexDirection: "row",
+        alignItems: "center"
+    },
+    favorite: {
+        alignItems: "center",
+        width: 20,
+        height: 20,
+        marginRight: 60,
     }
   })

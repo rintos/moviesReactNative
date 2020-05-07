@@ -8,7 +8,7 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-let numOfColumns = 3;
+let numOfColumns = 2;
 
 const Home = ({navigation}) => {
 
@@ -16,7 +16,7 @@ const Home = ({navigation}) => {
     useEffect(() => {
         listFilmes(setFilms);
     },[])
-  
+
     return(
         <Fragment>
             <FlatList
