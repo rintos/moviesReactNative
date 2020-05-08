@@ -10,8 +10,6 @@ const styleDetail = StyleSheet.create({
     image: {
         width: 360,
         height: 560,
-        marginLeft: 20,
-        marginTop: 20,
     },
     text: {
         flex: 1,
