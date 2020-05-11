@@ -10,46 +10,34 @@ import styleHome from '../Home/styleHome';
 import styleDetail from './styleDetail';
 
 import listGenres from '../Api/genre';
-import { FlatList } from 'react-native-gesture-handler';
+
+let urlImage = "https://image.tmdb.org/t/p/w500";
+
 
 const FilmDetail = ({ route, navigation }) => {
 
-    const { titleDetail } = route.params;
-    const { posterDetail } = route.params;
-    const { yearDetail } = route.params;
-    const { genreDetail } = route.params;
-    const { overviewDetail } = route.params;
+    const { filmSelected } = route.params;
+
+    const posterUrl = urlImage + filmSelected.poster_path;
 
     const [genres, setGenres] = useState([])
-    const [listOfGenre, setListOfGenre] = useState([])
 
     useEffect(() => {
-        listGenres(setGenres, genreDetail);
-
-        // genres.forEach(element => {
-        //     var i;
-        //     for (i = 0; i < genreDetail.length; i++) {
-        //       if(genreDetail[i] === element.id) {
-        //        setListOfGenre(element);
-        //        console.warn(element.name);
-        //       }
-        //     }
-        //   });  
-
+        listGenres(setGenres, filmSelected.genre_ids);     
     }, [])
 
     return (
         <>
             <View style={styles.viewStyle}>
                 <Image
-                    source={{ uri: posterDetail }}
+                    source={{ uri: posterUrl }}
                     style={styleDetail.image}
                 />
                 <Text
                     style={styleHome.text, styles.text}
-                >{JSON.stringify(titleDetail)}</Text>
+                >{JSON.stringify(filmSelected.original_title)}</Text>
                 <ColoredLine />
-                <Text style={styleHome.text, styles.text}>{yearDetail}</Text>
+                <Text style={styleHome.text, styles.text}>{filmSelected.release_date}</Text>
                 <ColoredLine />
                 <View style={styles.onSameLine}>
                     {genres.map(element => {                       
@@ -57,9 +45,8 @@ const FilmDetail = ({ route, navigation }) => {
                     })}
                 </View>
                 <ColoredLine />
-                <Text style={styles.text}>{overviewDetail}</Text>
+                <Text style={styles.text}>{filmSelected.overview}</Text>
             </View>
-
         </>
     )
 
@@ -73,7 +60,6 @@ const ColoredLine = () => (
         }}
     />
 );
-
 
 export default FilmDetail
 

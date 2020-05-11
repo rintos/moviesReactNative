@@ -8,9 +8,11 @@ import Header from './src/Components/Header/Header';
 
 import Home from './src/Components/Home/Home';
 import FilmDetail from './src/Components/Details/FilmDetail';
+import Favorites from './src/Components/Favorite/Favorites';
 
 
 const Stack = createStackNavigator();
+
 
 const App = () =>  {
 
@@ -19,6 +21,7 @@ const App = () =>  {
     //     <Header />
     //     <Home />
     // </Fragment>
+    <>
 
     <NavigationContainer>
       <Stack.Navigator>
@@ -32,6 +35,8 @@ const App = () =>  {
         />
       </Stack.Navigator>
     </NavigationContainer>
+
+    </>
   );
 
 

@@ -12,7 +12,7 @@ import FilmDetail from '../Details/FilmDetail';
 
 let numOfColumns = 2;
 const WIDTH = Dimensions.get("window").width
-const Films = ({navigation,title, poster, year, genre, description}) => {
+const Films = ({navigation,title, poster, description, filmSelected}) => {
 
     let urlImage = "https://image.tmdb.org/t/p/w500";
     let posterUrl = urlImage + poster;
@@ -24,10 +24,7 @@ const Films = ({navigation,title, poster, year, genre, description}) => {
         <View style={container}>
             <TouchableOpacity 
                 onPress={() => navigation.navigate('Details',{
-                                titleDetail: title, 
-                                posterDetail: posterUrl,
-                                yearDetail: year,
-                                genreDetail: genre,
+                                filmSelected: filmSelected,
                                 overviewDetail: description})
                         }>
                 <Image

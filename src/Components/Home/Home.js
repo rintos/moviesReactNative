@@ -28,9 +28,8 @@ const Home = ({navigation}) => {
                     <Films 
                       title={item.original_title}
                       poster={item.poster_path}
-                      year={item.release_date}
-                      genre={item.genre_ids}
                       description={item.overview}
+                      filmSelected={item}
                       navigation={navigation}
                     />
                   </Fragment>}
