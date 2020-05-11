@@ -1,13 +1,14 @@
 import React, {Fragment} from 'react';
 import {
     Text,
-    View
+    View,
+    StyleSheet
 } from 'react-native';
 
 const Favorites = () => {
     return(
         <>
-            <View>
+            <View style={styles.container}>
                 <Text>Favorites Page List</Text>
                 <Text>Favorites Page List</Text>
                 <Text>Favorites Page List</Text>
@@ -18,3 +19,11 @@ const Favorites = () => {
 }
 
 export default Favorites
+
+
+const styles = StyleSheet.create({
+    container: {
+      flex:1,
+      
+    }
+  })

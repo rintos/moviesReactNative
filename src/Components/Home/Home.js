@@ -2,11 +2,10 @@ import React, { Fragment,useState,useEffect } from 'react';
 import listFilmes from '../Api/feed';
 import Films from '../Home/Films';
 import {
-    FlatList
+    FlatList, View, StyleSheet
 } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 
 let numOfColumns = 2;
 
@@ -19,6 +18,7 @@ const Home = ({navigation}) => {
 
     return(
         <Fragment>
+          <View style={styles.container}>
             <FlatList
               data={films}
               keyExtractor={(item) => item.id.toString()}
@@ -35,10 +35,29 @@ const Home = ({navigation}) => {
                   </Fragment>}
              >
             </FlatList>
+
+          </View>
         </Fragment>
       );
 }
 
+function DetailView() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Details" component={FilmDetail} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+
 export default Home
 
 
+
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+  }
+})
