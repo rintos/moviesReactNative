@@ -9,6 +9,7 @@ import {
     ScrollView,
     SafeAreaView
 } from 'react-native';
+import Moment from 'moment';
 
 import styleHome from '../Home/styleHome';
 import styleDetail from './styleDetail';
@@ -54,7 +55,7 @@ const FilmDetail = ({ route, navigation }) => {
 
                 </View>
                 <ColoredLine />
-                <Text style={styleHome.text, styles.text}>{filmSelected.release_date}</Text>
+                <Text style={styleHome.text, styles.text}>{Moment(filmSelected.release_date).format('YYYY')}</Text>
                 <ColoredLine />
                 <View style={styles.onSameLine}>
                     <ShowGenres genresList={genres} />
