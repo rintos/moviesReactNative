@@ -8,7 +8,7 @@ const displayWidth = Dimensions.get("screen").width;
 
 const styleDetail = StyleSheet.create({
     image: {
-        width: 360,
+        width: 375,
         height: 560,
     },
     text: {

@@ -2,19 +2,23 @@ import React, {Fragment} from 'react';
 import {
     Text,
     View,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity, Image
 } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
-const Favorites = () => {
+import ListFavorites from './ListFavorites';
+
+
+const Favorites = ({ navigation }) => {
     return(
         <>
             <View style={styles.container}>
-                <Text>Favorites Page List</Text>
-                <Text>Favorites Page List</Text>
-                <Text>Favorites Page List</Text>
-                <Text>Favorites Page List</Text>
+                <ListFavorites  navigation={navigation}/>
             </View>
         </>
+        
+        
     );
 }
 
@@ -24,6 +28,10 @@ export default Favorites
 const styles = StyleSheet.create({
     container: {
       flex:1,
-      
+    },
+    text: {
+        fontSize: 50
     }
+
+
   })

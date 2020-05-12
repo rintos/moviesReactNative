@@ -41,17 +41,6 @@ const Home = ({navigation}) => {
       );
 }
 
-function DetailView() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Details" component={FilmDetail} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
-
-
 export default Home
 
 

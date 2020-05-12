@@ -12,6 +12,7 @@ import FilmDetail from '../Details/FilmDetail';
 
 let numOfColumns = 2;
 const WIDTH = Dimensions.get("window").width
+
 const Films = ({navigation,title, poster, description, filmSelected}) => {
 
     let urlImage = "https://image.tmdb.org/t/p/w500";
@@ -32,7 +33,7 @@ const Films = ({navigation,title, poster, description, filmSelected}) => {
                     style={styles.poster}
                 />
             </TouchableOpacity>
-            <View style={styles.viewHeight}>
+            {/* <View style={styles.viewHeight}>
                 <View style={styles.onSameLine}>
                     <Text style={itemText}>{title}</Text>
                     <TouchableOpacity>
@@ -42,8 +43,8 @@ const Films = ({navigation,title, poster, description, filmSelected}) => {
                         />
                     </TouchableOpacity>
                 </View>
-            </View>
-
+            </View> */}
+            <TitleWithFavoriteIcon  title={title}/>
 
         </View>
     )
@@ -52,7 +53,25 @@ const Films = ({navigation,title, poster, description, filmSelected}) => {
 
 }
 
+const TitleWithFavoriteIcon = ({title}) => {
+    return(
+        <View style={styles.viewHeight}>
+                <View style={styles.onSameLine}>
+                    <Text style={styles.itemText}>{title}</Text>
+                    <TouchableOpacity>
+                        <Image 
+                            source={require("../../../res/img/s2.png")}
+                            style={styles.favorite}
+                        />
+                    </TouchableOpacity>
+                </View>
+            </View>
+    );
+}
+
 export default Films
+
+
 
 
 const styles = StyleSheet.create({

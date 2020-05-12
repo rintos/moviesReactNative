@@ -3,7 +3,11 @@ import {
     Text,
     View,
     Image,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity,
+    Dimensions,
+    ScrollView,
+    SafeAreaView
 } from 'react-native';
 
 import styleHome from '../Home/styleHome';
@@ -12,6 +16,8 @@ import styleDetail from './styleDetail';
 import listGenres from '../Api/genre';
 
 let urlImage = "https://image.tmdb.org/t/p/w500";
+
+const WIDTH = Dimensions.get("window").width
 
 
 const FilmDetail = ({ route, navigation }) => {
@@ -23,33 +29,54 @@ const FilmDetail = ({ route, navigation }) => {
     const [genres, setGenres] = useState([])
 
     useEffect(() => {
-        listGenres(setGenres, filmSelected.genre_ids);     
+        listGenres(setGenres, filmSelected.genre_ids);
     }, [])
 
     return (
         <>
-            <View style={styles.viewStyle}>
+            <View style={styles.container}>
                 <Image
                     source={{ uri: posterUrl }}
                     style={styleDetail.image}
                 />
-                <Text
-                    style={styleHome.text, styles.text}
-                >{JSON.stringify(filmSelected.original_title)}</Text>
+                <View >
+                    <View style={styles.titleView}>
+                        <Text
+                            style={styleHome.text, styles.text}
+                        >{filmSelected.original_title}</Text>
+                        <TouchableOpacity>
+                            <Image source={require("../../../res/img/s2.png")}
+                                style={styles.favorite}
+                            />
+
+                        </TouchableOpacity>
+                    </View>
+
+                </View>
                 <ColoredLine />
                 <Text style={styleHome.text, styles.text}>{filmSelected.release_date}</Text>
                 <ColoredLine />
                 <View style={styles.onSameLine}>
-                    {genres.map(element => {                       
-                        return (<Text style={styles.text}>{element}, </Text>) 
-                    })}
+                    <ShowGenres genresList={genres} />
                 </View>
                 <ColoredLine />
-                <Text style={styles.text}>{filmSelected.overview}</Text>
+                <SafeAreaView>
+                    <ScrollView>
+                        <Text style={styles.text}>{filmSelected.overview}</Text>
+                    </ScrollView>
+                </SafeAreaView>
             </View>
         </>
     )
 
+}
+
+const ShowGenres = ({ genresList }) => {
+    return (
+        genresList.map((item) => {
+            return (<Text key={item} style={styles.text}>{item}, </Text>)
+        })
+    );
 }
 
 const ColoredLine = () => (
@@ -65,18 +92,31 @@ export default FilmDetail
 
 
 const styles = StyleSheet.create({
-    onSameLine: {
-        flexDirection: "row",        
-    },
-    viewStyle: {
+    container: {
+        flex: 1,
         marginLeft: 20,
         marginRight: 20,
-        marginBottom:20,
-    }, 
+        marginBottom: 20,
+    },
+    onSameLine: {
+        flexDirection: "row",
+        alignItems: "center",
+
+    },
+    titleView: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: 'space-between'
+    },
     text: {
         marginTop: 10,
         marginBottom: 10,
-        
+
+    },
+    favorite: {
+        width: 20,
+        height: 20,
+
     }
 
 })
