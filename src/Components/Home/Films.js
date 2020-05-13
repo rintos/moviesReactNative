@@ -58,12 +58,10 @@ const TitleWithFavoriteIcon = ({title}) => {
         <View style={styles.viewHeight}>
                 <View style={styles.onSameLine}>
                     <Text style={styles.itemText}>{title}</Text>
-                    <TouchableOpacity>
                         <Image 
                             source={require("../../../res/img/s2.png")}
                             style={styles.favorite}
                         />
-                    </TouchableOpacity>
                 </View>
             </View>
     );
@@ -77,6 +75,7 @@ export default Films
 const styles = StyleSheet.create({
     container: {
       flex: 1,
+      width: '99%',
       marginBottom: 10,
       marginRight: 20,
       marginLeft: 20,
@@ -92,11 +91,12 @@ const styles = StyleSheet.create({
     },
     itemText: {
       fontSize: 12,
+      width: 167,
       color: "#FF8C00",
       alignItems: "center",
       justifyContent: "center",
       flex: 1,
-      textAlign: 'center', // <-- the magic
+      textAlign: 'center', // <-- the magic for alight Title Movie
 
     },
     onSameLine: {
@@ -113,13 +113,17 @@ const styles = StyleSheet.create({
         marginRight: 15,
     },
     poster: {
-        width: 167,
+      //  flex: 1,
+       // width: 167,
+       width:'99%',
         height: 250,
         alignItems: "center",
         justifyContent: "center",
         
     }, viewHeight: {
         height: 50,
+        //width: 167,
+        width: '99%',
         backgroundColor: "#202020",
         alignContent: "center",
         alignItems: "center",

@@ -8,8 +8,11 @@ const displayWidth = Dimensions.get("screen").width;
 
 const styleDetail = StyleSheet.create({
     image: {
-        width: 375,
-        height: 560,
+      //  width: 375,
+        width: '99%',
+        height: 400,
+      //  resizeMode: 'contain'
+
     },
     text: {
         flex: 1,

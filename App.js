@@ -55,7 +55,7 @@ function MyTabsBar() {
         component={Home}
         options={{
           tabBarLabel: 'Movies',
-          tabBarColor: '#037bfc',
+          tabBarColor: '#202020',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           ),

@@ -35,38 +35,41 @@ const FilmDetail = ({ route, navigation }) => {
 
     return (
         <>
-            <View style={styles.container}>
-                <Image
-                    source={{ uri: posterUrl }}
-                    style={styleDetail.image}
-                />
-                <View >
-                    <View style={styles.titleView}>
-                        <Text
-                            style={styleHome.text, styles.text}
-                        >{filmSelected.original_title}</Text>
-                        <TouchableOpacity>
-                            <Image source={require("../../../res/img/s2.png")}
-                                style={styles.favorite}
-                            />
+            <SafeAreaView>
+                <ScrollView>
+                    <View style={styles.container}>
+                        <Image
+                            source={{ uri: posterUrl }}
+                            style={styleDetail.image}
+                        />
+                        <View >
+                            <View style={styles.titleView}>
+                                <Text
+                                    style={styleHome.text, styles.text}
+                                >{filmSelected.original_title}</Text>
+                                <TouchableOpacity>
+                                    <Image source={require("../../../res/img/s2.png")}
+                                        style={styles.favorite}
+                                    />
 
-                        </TouchableOpacity>
+                                </TouchableOpacity>
+                            </View>
+
+                        </View>
+                        <ColoredLine />
+                        <Text style={styleHome.text, styles.text}>{Moment(filmSelected.release_date).format('YYYY')}</Text>
+                        <ColoredLine />
+                        <View style={styles.onSameLine}>
+                            <ShowGenres genresList={genres} />
+                        </View>
+                        <ColoredLine />
+
+                        <Text style={styles.text}>{filmSelected.overview}</Text>
                     </View>
 
-                </View>
-                <ColoredLine />
-                <Text style={styleHome.text, styles.text}>{Moment(filmSelected.release_date).format('YYYY')}</Text>
-                <ColoredLine />
-                <View style={styles.onSameLine}>
-                    <ShowGenres genresList={genres} />
-                </View>
-                <ColoredLine />
-                <SafeAreaView>
-                    <ScrollView>
-                        <Text style={styles.text}>{filmSelected.overview}</Text>
-                    </ScrollView>
-                </SafeAreaView>
-            </View>
+                </ScrollView>
+            </SafeAreaView>
+
         </>
     )
 
