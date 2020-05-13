@@ -31,8 +31,30 @@ const App = () => {
 
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Movies" component={MyTabsBar} />
-          <Stack.Screen name="Details" component={FilmDetail} />
+          <Stack.Screen 
+            name="Movies" 
+            component={MyTabsBar} 
+            options={{
+              headerStyle: {
+                backgroundColor: '#202020'
+              },
+              headerTitleStyle: {
+                color: 'white'
+              }
+            }}
+          />
+          <Stack.Screen 
+            name="Details" 
+            component={FilmDetail} 
+            options={{
+              headerStyle: {
+                backgroundColor: '#202020'
+              },
+              headerTitleStyle: {
+                color: 'white'
+              }
+            }}
+          />
           <Stack.Screen name="Detail" component={Detail} />
         </Stack.Navigator>
 
@@ -47,8 +69,8 @@ function MyTabsBar() {
     <Tab.Navigator
       initialRouteName="Movies"
       activeColor="#f0edf6"
-      inactiveColor="#3e2465"
-      // barStyle={{ backgroundColor: '#037bfc' }}
+      inactiveColor='gray'
+       barStyle={{ backgroundColor: '#202020' }}
     >
       <Tab.Screen
         name="Movies"
@@ -59,13 +81,11 @@ function MyTabsBar() {
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           ),
-          
-          // tabBarIcon: ({ color }) => (
-          //   <Icon name="home" color={color} size={26} />
-          // ),
         }}
       />
-      <Tab.Screen name="Favorite" component={Favorite}
+      <Tab.Screen 
+      name="Favorite" 
+      component={Favorite}
         options={{
           tabBarLabel: 'Favorite',
           tabBarColor: '#f5425a',

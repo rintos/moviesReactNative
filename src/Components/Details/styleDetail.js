@@ -10,7 +10,7 @@ const styleDetail = StyleSheet.create({
     image: {
       //  width: 375,
         width: '99%',
-        height: 400,
+        height: 570,
       //  resizeMode: 'contain'
 
     },
